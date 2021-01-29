@@ -39,6 +39,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://stormy-castle-74654.herokuapp.com/"
+  "proxy": "http://localhost:3000"
 
 }
