@@ -9,8 +9,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "heruko-postbuild": "npm install && npm run-script build && npm run-script start:prod0",
-    "build": "webpack"
+    "heruko-postbuild": "npm install && npm run-script build && npm run-script start:prod0"
   },
   "keywords": [],
   "author": "",
