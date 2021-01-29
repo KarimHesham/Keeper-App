@@ -49,8 +49,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// const uri = process.env.ATLAS_URI;
-mongoose.connect("mongodb+srv://Karim:keeper@keeper.ickkk.mongodb.net/keeperDB?retryWrites=true&w=majority", { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
+const uri = process.env.ATLAS_URI;
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
 
 const connection = mongoose.connection;
 
@@ -75,15 +75,12 @@ app.use("/", logoutRouter);
 
 
 
-// app.use(express.static(path.join(__dirname, './client/build')))
 
-// app.get('*', function(_, res) {
-//   res.sendFile(path.join(__dirname, resolvedPath), function(err) {
-//     if (err) {
-//       res.status(500).send(err)
-//     }
-//   })
-// })
+app.get("*", function(req, res) {
+  res.sendFile("/client/public/index.html", {root: __dirname});
+});
+
+console.log(__dirname + "/client/public/index.html");
 
   
 

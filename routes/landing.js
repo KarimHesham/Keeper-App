@@ -4,10 +4,11 @@ const path = require('path');
 const filePath = "./client/public/index.html";
 const resolvedPath = path.resolve(filePath);
 
-console.log(resolvedPath);
+// console.log(resolvedPath);
 
-router.route("*").get((req, res) => {
-    res.sendFile("./client/public/index.html");
-});
+// router.route("*").get((req, res) => {
+//     res.sendFile(__dirname + '/index.html');
+// });
+// console.log(__dirname);
 
 module.exports = router;
