@@ -81,11 +81,11 @@ app.use(express.static(buildPath));
 //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 // });
 
-app.use("/", notesRouter);
-app.use("/", registerRouter);
-app.use("/signin", loginRouter);
-app.use("/", landingRouter);
-app.use("/", logoutRouter);
+app.use("/routes/notes", notesRouter);
+app.use("/routes/register", registerRouter);
+app.use("/routes/signin", loginRouter);
+app.use("/routes/landing", landingRouter);
+app.use("/routes/logout", logoutRouter);
 
 
 
