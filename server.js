@@ -70,11 +70,11 @@ passport.deserializeUser(User.deserializeUser());
 //   });
 // }
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static("./build/index.html"));
 
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile("./build/index.html");
 });
 
 app.use("/", notesRouter);
