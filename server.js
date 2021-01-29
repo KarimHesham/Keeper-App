@@ -83,7 +83,7 @@ app.use(express.static(buildPath));
 
 app.use("/", notesRouter);
 app.use("/", registerRouter);
-app.use("/", loginRouter);
+app.use("/signin", loginRouter);
 app.use("/", landingRouter);
 app.use("/", logoutRouter);
 
