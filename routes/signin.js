@@ -3,6 +3,10 @@ const passport = require("passport");
 
 let User = require("../models/users");
 
+router.get("/", function (req, res, next) {
+  res.render("index");
+})
+
 router.route("/signin").post((req, res) => {
     const user = new User({
         username: req.body.username,

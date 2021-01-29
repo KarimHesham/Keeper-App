@@ -77,15 +77,15 @@ app.use(express.static(buildPath));
 // app.use(express.static(path.join(__dirname, 'build')));
 
 
-// app.get('/*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
-app.use("/routes/notes", notesRouter);
-app.use("/routes/register", registerRouter);
-app.use("/routes/signin", loginRouter);
-app.use("/routes/landing", landingRouter);
-app.use("/routes/logout", logoutRouter);
+app.use("/", notesRouter);
+app.use("/", registerRouter);
+app.use("/", loginRouter);
+app.use("/", landingRouter);
+app.use("/", logoutRouter);
 
 
 
