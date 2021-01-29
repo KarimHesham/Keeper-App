@@ -63,7 +63,7 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// app.use(express.static('/public/index.html'));
+app.use(express.static("/client/public"));
 
 
 
@@ -77,10 +77,9 @@ app.use("/", logoutRouter);
 
 
 app.get("*", function(req, res) {
-  res.sendFile("/client/src/index.js", {root: __dirname});
+  res.sendFile("/client/public/index.html", {root: __dirname});
 });
 
-console.log(__dirname + "/client/src/index.js");
 
   
 
