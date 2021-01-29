@@ -78,7 +78,7 @@ app.use(express.static(buildPath));
 
 
 app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile(path.join(buildPath, 'index.html'));
 });
 
 app.use("/", notesRouter);
