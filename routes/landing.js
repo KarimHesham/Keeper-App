@@ -6,8 +6,8 @@ const resolvedPath = path.resolve(filePath);
 
 // console.log(resolvedPath);
 
-router.route("/").get((req, res) => {
-    res.sendFile(filePath);
-});
+// router.route("/").get((req, res) => {
+//     res.sendFile(filePath);
+// });
 
 module.exports = router;
