@@ -8,8 +8,8 @@
     "npm": "6.x"
   },
   "scripts": {
-    "start": "node server.js",
-    "heruko-postbuild": "npm install && npm run-script build && npm run-script start:prod0"
+    "server": "nodemon index.js",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +29,5 @@
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.1.0"
-  },
-  "proxy": "http://localhost:3000"
+  }
 }
