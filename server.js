@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
-// const path = require('path');
+const path = require('path');
 // const filePath = "./client/public/index.html"
 // const resolvedPath = path.resolve(filePath);
 
@@ -64,7 +64,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use('/static', express.static(path.join(__dirname, 'client/build')));
   app.get("*", (req, res) => {
      res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
@@ -81,9 +81,9 @@ app.use("/", logoutRouter);
 
 
 
-app.get("*", function(req, res) {
-  res.sendFile("/client/public/index.html", {root: __dirname});
-});
+// app.get("*", function(req, res) {
+//   res.sendFile("/client/public/index.html", {root: __dirname});
+// });
 
 
   
