@@ -70,12 +70,16 @@ passport.deserializeUser(User.deserializeUser());
 //   });
 // }
 
-app.use(express.static("./build/index.html"));
+const buildPath = path.join(__dirname, '..', 'build');
+app.use(express.static(buildPath));
 
 
-app.get('*', (req, res) => {
-  res.sendFile("./build/index.html");
-});
+// app.use(express.static(path.join(__dirname, 'build')));
+
+
+// app.get('/*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
 
 app.use("/", notesRouter);
 app.use("/", registerRouter);
