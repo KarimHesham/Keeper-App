@@ -41,7 +41,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(session({
-  secret:"This is keeper clone.",
+  secret:process.env.SECRET,
   resave: false,
   saveUninitialized: false
 }));
