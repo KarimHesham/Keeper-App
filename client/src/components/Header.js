@@ -26,14 +26,14 @@ function Header() {
       
         <header>
         <div>
-          <Link to="/" style={{textDecoration: "none"}}>
+          <Link href="https://thisiskeeper.herokuapp.com" style={{textDecoration: "none"}}>
               <h1>
                 <HighlightIcon className="keeperIcon"/>
                 Keeper
               </h1>
             </Link>
             
-            <Link to="/">
+            <Link href="https://thisiskeeper.herokuapp.com">
             <ExitToAppIcon onClick={logout} className="logout"/>  
           </Link>  
         </div>
