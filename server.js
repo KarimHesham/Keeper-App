@@ -59,10 +59,10 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
-app.use(notesRouter);
-app.use(registerRouter);
-app.use(loginRouter);
-app.use(logoutRouter);
+app.use("/", notesRouter);
+app.use("/", registerRouter);
+app.use("/", loginRouter);
+app.use("/", logoutRouter);
 
 
 if (process.env.NODE_ENV === "production") {
