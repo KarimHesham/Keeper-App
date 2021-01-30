@@ -64,10 +64,10 @@ if (process.env.NODE_ENV === "production") {
 }
 
 
-app.use("/", notesRouter);
-app.use("/", registerRouter);
-app.use("/", loginRouter);
-app.use("/", logoutRouter);
+app.use("/notes", notesRouter);
+app.use("/signup", registerRouter);
+app.use("/signin", loginRouter);
+app.use("/logout", logoutRouter);
 
 
 app.listen(port, () => {

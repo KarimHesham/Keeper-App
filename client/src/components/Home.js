@@ -39,21 +39,20 @@ function Home() {
     });
   }
   
-  // function getNotes() {
-  //   axios.get(`https://thisiskeeper.herokuapp.com/notes/${username}`)
-  //   .then(res => { 
-  //       // res.json();
-  //       setNotes(res.data);
-  //       console.log(res.data);
-  //       displayNotes(notes);
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //   });
-  // }
+  function getNotes() {
+    axios.get(`https://thisiskeeper.herokuapp.com/notes/${username}`)
+    .then(res => { 
+        setNotes(res.data);
+        console.log(res.data);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
 
-    function displayNotes(notes)  {
-    if(notes?.length > 0) {
+    function displayNotes()  {
+    getNotes();
+    if(notes.length > 0) {
       return (
         notes.map((noteItem, index) => {
           return (
@@ -90,7 +89,7 @@ function Home() {
             </Grid>
             <Grid container>
               <Grid item xs>
-              {displayNotes(notes)}
+              {displayNotes()}
               </Grid>  
             </Grid>
            
