@@ -7,7 +7,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link href="https://stormy-castle-74654.herokuapp.com" color="inherit">
+      <Link href="https://thisiskeeper.herokuapp.com" color="inherit">
         Keeper
       </Link>{' '}
       {new Date().getFullYear()}
