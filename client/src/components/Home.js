@@ -19,9 +19,10 @@ function Home() {
   useEffect(() => {
      axios.get(`https://thisiskeeper.herokuapp.com/notes/${username}`)
     .then(res => { 
+      console.log("then statement");
         // res.json();
-        setNotes(res.data);
         console.log(res.data);
+        setNotes(res.data);
         // displayNotes(notes);
     })
     .catch(err => {
@@ -65,7 +66,6 @@ function Home() {
       );
       
     }
-    console.log(notes);
 
   }
  
