@@ -38,7 +38,7 @@ function Home() {
   }
 
    function displayNotes()  {
-    getNotes();
+    
     if(notes.length > 0) {
       return (
         notes.map((noteItem, index) => {
@@ -77,7 +77,7 @@ function Home() {
             </Grid>
             <Grid container>
               <Grid item xs>
-              {displayNotes()}
+              {notes.length > 0 ? displayNotes(): <div>Loading...</div>}
               </Grid>  
             </Grid>
            
