@@ -37,8 +37,8 @@ function Home() {
     });
   }
 
-  async function displayNotes()  {
-   await getNotes();
+   function displayNotes()  {
+    getNotes();
     if(notes.length > 0) {
       return (
         notes.map((noteItem, index) => {
