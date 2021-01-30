@@ -17,12 +17,17 @@ function Home() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-     axios.get(`https://thisiskeeper.herokuapp.com/notes/${username}`)
+     axios.get(`https://thisiskeeper.herokuapp.com/notes/${username}`, notes)
     .then(res => { 
       console.log("then statement");
         // res.json();
+        console.log("res.JSON()");
+        console.log(res.json());
+        console.log("RESPONSE");
         console.log(res);
-        setNotes(res);
+        console.log("DATAA");
+        console.log(res.data);
+        setNotes(res.data);
         // displayNotes(notes);
     })
     .catch(err => {
