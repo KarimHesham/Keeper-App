@@ -18,7 +18,7 @@ function Home() {
 
   useEffect(() => {
     getNotes();
-  });
+  },[getNotes]);
 
   function addNote(newNote) {
        setNotes(prevNotes => {
