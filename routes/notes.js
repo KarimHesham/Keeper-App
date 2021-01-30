@@ -3,11 +3,9 @@ const router = require("express").Router();
 let Note = require("../models/notes");
 
 router.route("/notes/:username").get( async (req, res) => {
-    
-    const notesList = await Note.find({username: req.params.username});
-    res.json({data: notesList});
-    // .then(notes => res.send(notes))
-    // .catch(err => res.status(400).json("Error" + err));
+     Note.find({username: req.params.username})
+    .then(notes => res.json(notes))
+    .catch(err => res.status(400).json("Error" + err));
      
 });
 
