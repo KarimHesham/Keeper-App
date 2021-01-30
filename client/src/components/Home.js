@@ -37,10 +37,11 @@ function Home() {
     });
   }
 
-  function displayNotes() {
+  async function displayNotes()  {
+   await getNotes();
     if(notes.length > 0) {
       return (
-        notes.data.map((noteItem, index) => {
+        notes.map((noteItem, index) => {
           return (
             <Note
               key={index}
@@ -52,7 +53,10 @@ function Home() {
           );
         })
       );
+      
     }
+    console.log(notes);
+
   }
  
   function deleteNote(id) {
