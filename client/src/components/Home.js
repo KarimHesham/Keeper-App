@@ -28,7 +28,7 @@ function Home() {
     .catch(err => {
       console.log(err);
     });
-  },[notes, username]);
+  },[]);
 
   function addNote(newNote) {
        setNotes(prevNotes => {
