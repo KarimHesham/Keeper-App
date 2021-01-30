@@ -6,10 +6,6 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const path = require('path');
-// const filePath = "./client/public/index.html"
-// const resolvedPath = path.resolve(filePath);
-
-// console.log(resolvedPath);
 
 
 
@@ -67,32 +63,12 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(__dirname + '/client/build'));
 }
 
-// const buildPath = path.join(__dirname, '..', 'build');
-// app.use(express.static(buildPath));
-
-
-// app.use(express.static(path.join(__dirname, 'build')));
-
-
-// app.get('/*', (req, res) => {
-//   res.sendFile(path.join(buildPath, 'index.html'));
-// });
 
 app.use("/", notesRouter);
 app.use("/", registerRouter);
 app.use("/", loginRouter);
 app.use("/", landingRouter);
 app.use("/", logoutRouter);
-
-
-
-
-// app.get("*", function(req, res) {
-//   res.sendFile("/client/public/index.html", {root: __dirname});
-// });
-
-
-  
 
 
 app.listen(port, () => {
