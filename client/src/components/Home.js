@@ -21,8 +21,8 @@ function Home() {
     .then(res => { 
       console.log("then statement");
         // res.json();
-        console.log(res.data);
-        setNotes(res.data);
+        console.log(res);
+        setNotes(res);
         // displayNotes(notes);
     })
     .catch(err => {
