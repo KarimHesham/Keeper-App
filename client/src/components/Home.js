@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams }  from "react-router-dom";
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -16,9 +16,9 @@ function Home() {
 
   const [notes, setNotes] = useState([]);
 
-  useEffect(() => {
-    getNotes();
-  }, []);
+  // useEffect(() => {
+  //   getNotes();
+  // }, []);
 
   function addNote(newNote) {
        setNotes(prevNotes => {
@@ -27,20 +27,19 @@ function Home() {
   }
   
   function getNotes() {
-    axios.get(`https://thisiskeeper.herokuapp.com/notes/${username}`, notes)
+    axios.get(`/notes/${username}`, notes)
     .then(res => { 
-        res.json();
+        // res.json();
         setNotes(res.data);
         console.log(res.data);
-        // displayNotes(notes);
+        displayNotes(notes);
     })
     .catch(err => {
       console.log(err);
     });
   }
 
-   async function displayNotes(notes)  {
-    await getNotes();
+    function displayNotes(notes)  {
     if(notes.length > 0) {
       return (
         notes.map((noteItem, index) => {
@@ -79,7 +78,7 @@ function Home() {
             </Grid>
             <Grid container>
               <Grid item xs>
-              {displayNotes(notes)}
+              {getNotes()}
               </Grid>  
             </Grid>
            
