@@ -17,7 +17,7 @@ function Home() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://thisiskeeper.herokuapp.com/notes/${username}`, notes)
+     axios.get(`https://thisiskeeper.herokuapp.com/notes/${username}`, notes)
     .then(res => { 
         // res.json();
         setNotes(res.data);
@@ -49,7 +49,7 @@ function Home() {
   // }
 
     function displayNotes(notes)  {
-    if(notes.length > 0) {
+    if(notes?.length > 0) {
       return (
         notes.map((noteItem, index) => {
           return (
