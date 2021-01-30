@@ -27,7 +27,7 @@ function Home() {
   }
   
   function getNotes() {
-    axios.get(`https://thisiskeeper.herokuapp.com/notes/${username}`, notes)
+    axios.get(`http://localhost:3000/notes/${username}`, notes)
     .then(res => {
         setNotes(res.data);
         console.log(res.data);

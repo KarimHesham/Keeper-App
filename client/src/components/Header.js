@@ -13,7 +13,7 @@ function Header() {
 
 
   function logout() {
-    axios.get("https://thisiskeeper.herokuapp.com/logout")
+    axios.get("http://localhost:3000/logout")
       .then(res => {
           history.push("/")
       })

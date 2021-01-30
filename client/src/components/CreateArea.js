@@ -29,7 +29,7 @@ function CreateArea(props) {
 
   function submitNote(event) {
     const username = params.username;
-    axios.post(`https://thisiskeeper.herokuapp.com/notes/${username}/add`, note)
+    axios.post(`http://localhost:3000/notes/${username}/add`, note)
     .then(res => {
       note.id = res.data._id;
       props.onAdd(note);
