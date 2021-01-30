@@ -70,7 +70,7 @@ export default function Home() {
     </Grid>    
         
             <Grid item xs={12}>
-        <Link href="https://polar-sea-16937.herokuapp.com/signup">
+        <Link href="https://stormy-castle-74654.herokuapp.com/signup">
         <Button
             type="submit"
             fullWidth
@@ -85,7 +85,7 @@ export default function Home() {
             <span className={classes.orText}>or</span>     
         </Grid>
         <Grid item xs={12}>
-        <Link href="https://polar-sea-16937.herokuapp.com/signin">
+        <Link href="https://stormy-castle-74654.herokuapp.com/signin">
         <Button
             type="submit"
             fullWidth
