@@ -27,17 +27,19 @@ function Home() {
   }
   
   function getNotes() {
-    axios.get(`https://thisiskeeper.herokuapp.com/notes/${username}`, notes)
-    .then(res => {
+    axios.get(`/notes/${username}`, notes)
+    .then(res => { 
+        res.json();
         setNotes(res.data);
         console.log(res.data);
+        // displayNotes(notes);
     })
     .catch(err => {
       console.log(err);
     });
   }
 
-   function displayNotes()  {
+   function displayNotes(notes)  {
     
     if(notes.length > 0) {
       return (
@@ -77,7 +79,7 @@ function Home() {
             </Grid>
             <Grid container>
               <Grid item xs>
-              {notes.length > 0 ? displayNotes(): <div>Loading...</div>}
+              {displayNotes(notes)}
               </Grid>  
             </Grid>
            
