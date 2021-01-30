@@ -9,7 +9,6 @@ import Note from "./components/Note";
 
 function App() {
  
-
   return (
     <Router>
       <Route path="/" exact component={Landing} />
