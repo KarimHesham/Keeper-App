@@ -82,7 +82,7 @@ function handleChange (event) {
 function handleSubmit(event)  {
   event.preventDefault();
 
-  axios.post("http://localhost:3000/signup", newUser)
+  axios.post("https://thisiskeeper.herokuapp.com/signup", newUser)
   .then(res => {
       history.push("/notes/"+newUser.username)
   })
