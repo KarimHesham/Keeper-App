@@ -20,7 +20,6 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors()); 
-
 app.use(express.json());
 app.set('view engine', 'ejs');
 app.use( bodyParser.json());
@@ -71,5 +70,5 @@ app.use("/", logoutRouter);
 
 
 app.listen(port, () => {
-    console.log("Server is running on port 3000!");
+    console.log("Server is running on" + port);
 });
