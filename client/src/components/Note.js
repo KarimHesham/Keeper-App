@@ -1,9 +1,17 @@
 import React from "react";
+import { useParams }  from "react-router-dom";
 import DeleteIcon from "@material-ui/icons/Delete";
+import axios from "axios";
 
 function Note(props) {
+  const params = useParams();
+
+  const username = params.username;
   
   function handleClick() {   
+    axios.delete(`http://localhost:3000/notes/${username}/`+props.id)
+    .then(res => "Note Deleted")
+    .catch(err => console.log(err));
     props.onDelete(props.id);  
   }
 

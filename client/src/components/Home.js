@@ -1,4 +1,4 @@
-import React, { useState, useEffect  }from "react";
+import React, { useState, useEffect } from "react";
 import { useParams }  from "react-router-dom";
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -30,6 +30,7 @@ function Home() {
     axios.get(`http://localhost:3000/notes/${username}`, notes)
     .then(res => {
         setNotes(res.data);
+        console.log(res.data);
     })
     .catch(err => {
       console.log(err);
@@ -50,19 +51,17 @@ function Home() {
             />
           );
         })
-      )
+      );
     }
   }
  
   function deleteNote(id) {
-    axios.delete(`http://localhost:3000/notes/${username}/`+id)
-    .then(res =>  setNotes(prevNotes => {
+     setNotes(prevNotes => {
       return prevNotes.filter((noteItem) => {
         return noteItem._id !== id;
       });
-    }))
-    .catch(err => console.log(err));
-  }
+  });
+}
 
   return (
     
