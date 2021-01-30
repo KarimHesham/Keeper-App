@@ -13,11 +13,11 @@ function App() {
   return (
     <Router>
       <Route path="/" exact component={Landing} />
-      <Route path="/signup" exact component={SignUp} />
-      <Route path="/signin" exact component={SignIn} />
-      <Route path="/notes/:username" exact component={Home} />
-      <Route path="/notes/:username/add" exact component={CreateArea} />
-      <Route path="/notes/:username/:id" exact component={Note} />
+      <Route path="https://stormy-castle-74654.herokuapp.com/signup" exact component={SignUp} />
+      <Route path="https://stormy-castle-74654.herokuapp.com/signin" exact component={SignIn} />
+      <Route path="https://stormy-castle-74654.herokuapp.com/notes/:username" exact component={Home} />
+      <Route path="https://stormy-castle-74654.herokuapp.com/notes/:username/add" exact component={CreateArea} />
+      <Route path="https://stormy-castle-74654.herokuapp.com/notes/:username/:id" exact component={Note} />
     </Router>
   );
 }
