@@ -17,7 +17,7 @@ function Home() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-     axios.get(`https://thisiskeeper.herokuapp.com/notes/${username}`, notes)
+     axios.get(`/notes/${username}`, notes)
     .then(res => { 
       console.log("then statement");
         
