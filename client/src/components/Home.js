@@ -40,7 +40,7 @@ function Home() {
   function displayNotes() {
     if(notes.length > 0) {
       return (
-        notes.map((noteItem, index) => {
+        notes.data.map((noteItem, index) => {
           return (
             <Note
               key={index}
