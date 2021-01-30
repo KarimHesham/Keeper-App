@@ -20,9 +20,7 @@ function Home() {
      axios.get(`https://thisiskeeper.herokuapp.com/notes/${username}`, notes)
     .then(res => { 
       console.log("then statement");
-        // res.json();
-        console.log("res.JSON()");
-        console.log(res.json());
+        
         console.log("RESPONSE");
         console.log(res);
         console.log("DATAA");
