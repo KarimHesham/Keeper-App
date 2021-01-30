@@ -27,7 +27,7 @@ function Home() {
   }
   
   function getNotes() {
-    axios.get(`/notes/${username}`, notes)
+    axios.get(`https://thisiskeeper.herokuapp.com/notes/${username}`, notes)
     .then(res => { 
         res.json();
         setNotes(res.data);
@@ -39,8 +39,8 @@ function Home() {
     });
   }
 
-   function displayNotes(notes)  {
-    
+   async function displayNotes(notes)  {
+    await getNotes();
     if(notes.length > 0) {
       return (
         notes.map((noteItem, index) => {
