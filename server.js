@@ -12,7 +12,6 @@ const path = require('path');
 const notesRouter = require("./routes/notes");
 const registerRouter =  require("./routes/signup");
 const loginRouter = require("./routes/signin");
-const landingRouter = require("./routes/landing");
 const logoutRouter = require("./routes/logout");
 
 require('dotenv').config();
@@ -69,7 +68,6 @@ if (process.env.NODE_ENV === "production") {
 app.use("/", notesRouter);
 app.use("/", registerRouter);
 app.use("/", loginRouter);
-app.use("/", landingRouter);
 app.use("/", logoutRouter);
 
 
