@@ -5,7 +5,7 @@ let Note = require("../models/notes");
 router.route("/notes/:username").get((req, res) => {
     
     Note.find({username: req.params.username})
-    .then(notes => res.json(notes))
+    .then(notes => res.send(notes))
     .catch(err => res.status(400).json("Error" + err));
      
 });
