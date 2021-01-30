@@ -3,7 +3,7 @@ const passport = require("passport");
 
 const User = require("../models/users");
 
-router.route("/signup").post((req, res) => {
+router.route("/").post((req, res) => {
   const registeredUser = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,

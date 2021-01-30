@@ -4,7 +4,7 @@ const passport = require("passport");
 let User = require("../models/users");
 
 
-router.route("/signin").post((req, res) => {
+router.route("/").post((req, res) => {
     const user = new User({
         username: req.body.username,
         password: req.body.password
