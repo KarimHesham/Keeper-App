@@ -36,7 +36,7 @@ function Home() {
   }
   
   function getNotes() {
-    axios.get(`https://thisiskeeper.herokuapp.com/notes/${username}`, notes)
+    axios.get(`https://thisiskeeper.herokuapp.com/notes/${username}`)
     .then(res => { 
         // res.json();
         setNotes(res.data);
