@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams }  from "react-router-dom";
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -16,9 +16,9 @@ function Home() {
 
   const [notes, setNotes] = useState([]);
 
-  // useEffect(() => {
-  //   getNotes();
-  // }, []);
+  useEffect(() => {
+    getNotes();
+  });
 
   function addNote(newNote) {
        setNotes(prevNotes => {
@@ -32,7 +32,7 @@ function Home() {
         // res.json();
         setNotes(res.data);
         console.log(res.data);
-        displayNotes(notes);
+        // displayNotes(notes);
     })
     .catch(err => {
       console.log(err);
@@ -78,7 +78,7 @@ function Home() {
             </Grid>
             <Grid container>
               <Grid item xs>
-              {getNotes()}
+              {displayNotes(notes)}
               </Grid>  
             </Grid>
            
