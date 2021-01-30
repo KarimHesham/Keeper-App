@@ -59,15 +59,15 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
-app.use("/notes", notesRouter);
-app.use("/signup", registerRouter);
-app.use("/signin", loginRouter);
-app.use("/logout", logoutRouter);
+app.use(notesRouter);
+app.use(registerRouter);
+app.use(loginRouter);
+app.use(logoutRouter);
 
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(__dirname + '/client/build'));
-  // app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')));
+  app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')));
 }
 
 
