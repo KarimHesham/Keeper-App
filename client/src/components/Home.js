@@ -16,22 +16,19 @@ function Home() {
 
   const [notes, setNotes] = useState([]);
 
-  useEffect(() => {
-     axios.get(`/notes/${username}`, notes)
+  useEffect(() => { getNotes()
+  }, []);
+
+  
+  function getNotes() {
+    axios.get(`/notes/${username}`, notes)
     .then(res => { 
-      console.log("then statement");
-        
-        console.log("RESPONSE");
-        console.log(res);
-        console.log("DATAA");
-        console.log(res.data);
         setNotes(res.data);
-        // displayNotes(notes);
     })
     .catch(err => {
       console.log(err);
     });
-  },[]);
+  }
 
   function addNote(newNote) {
        setNotes(prevNotes => {
@@ -39,19 +36,8 @@ function Home() {
     });
   }
   
-  function getNotes() {
-    axios.get(`https://thisiskeeper.herokuapp.com/notes/${username}`)
-    .then(res => { 
-        setNotes(res.data);
-        console.log(res.data);
-    })
-    .catch(err => {
-      console.log(err);
-    });
-  }
 
     function displayNotes()  {
-    getNotes();
     if(notes.length > 0) {
       return (
         notes.map((noteItem, index) => {

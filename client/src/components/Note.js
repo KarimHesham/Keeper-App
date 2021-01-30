@@ -9,7 +9,7 @@ function Note(props) {
   const username = params.username;
   
   function handleClick() {   
-    axios.delete(`https://thisiskeeper.herokuapp.com/notes/${username}/`+props.id)
+    axios.delete(`/notes/${username}/`+props.id)
     .then(res => "Note Deleted")
     .catch(err => console.log(err));
     props.onDelete(props.id);  
