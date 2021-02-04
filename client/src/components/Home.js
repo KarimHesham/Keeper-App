@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useParams }  from "react-router-dom";
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
+import { useHistory, useParams } from "react-router-dom";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
@@ -10,84 +10,77 @@ import axios from "axios";
 import "../css/home.css";
 
 function Home() {
+  const history = useHistory();
+
   const params = useParams();
 
   const username = params.username;
 
   const [notes, setNotes] = useState([]);
 
-  useEffect(() => { getNotes()
+  useEffect(() => {
+    getNotes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  
   function getNotes() {
-    axios.get(`/notes/${username}`, notes)
-    .then(res => { 
+    axios
+      .get(`/notes/${username}`, notes)
+      .then((res) => {
         setNotes(res.data);
-    })
-    .catch(err => {
-      console.log(err);
-    });
+        history.push(`/notes/${username}`);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   function addNote(newNote) {
-       setNotes(prevNotes => {
+    setNotes((prevNotes) => {
       return [...prevNotes, newNote];
     });
   }
-  
 
-    function displayNotes()  {
-    if(notes.length > 0) {
-      return (
-        notes.map((noteItem, index) => {
-          return (
-            <Note
-              key={index}
-              id={noteItem._id}
-              title={noteItem.title}
-              content={noteItem.content}
-              onDelete={deleteNote}
-            />
-          );
-        })
-      );
-      
+  function displayNotes() {
+    if (notes?.length > 0) {
+      return notes?.map((noteItem, index) => {
+        return (
+          <Note
+            key={index}
+            id={noteItem._id}
+            title={noteItem.title}
+            content={noteItem.content}
+            onDelete={deleteNote}
+          />
+        );
+      });
     }
-
   }
- 
+
   function deleteNote(id) {
-     setNotes(prevNotes => {
+    setNotes((prevNotes) => {
       return prevNotes.filter((noteItem) => {
         return noteItem._id !== id;
       });
-  });
-}
+    });
+  }
 
   return (
-    
-     <Container>
-        <Header />
+    <Container>
+      <Header />
+      <Grid container>
+        <Grid item xs>
+          <CreateArea onAdd={addNote} />
+        </Grid>
         <Grid container>
           <Grid item xs>
-            <CreateArea onAdd={addNote} />
-            </Grid>
-            <Grid container>
-              <Grid item xs>
-              {displayNotes()}
-              </Grid>  
-            </Grid>
-           
-          
+            {displayNotes()}
+          </Grid>
         </Grid>
-      
-        <Footer /> 
-      
-             
-     </Container>
-      
-    
+      </Grid>
+
+      <Footer />
+    </Container>
   );
 }
 
