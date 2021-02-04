@@ -16,7 +16,7 @@ const logoutRouter = require("./routes/logout");
 require("dotenv").config();
 
 const app = express();
-const port = 3000;
+const port = procces.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
